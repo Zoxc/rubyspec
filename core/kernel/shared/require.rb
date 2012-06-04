@@ -26,6 +26,8 @@ describe :kernel_require_basic, :shared => true do
       ScratchPad.recorded.should == []
     end
 
+=begin This spec can clear $LOAD_PATH if before throws an exception.
+
     # Can't make a file unreadable on these platforms
     platform_is_not :os => [:windows, :cygwin] do
       describe "with an unreadable file" do
@@ -46,6 +48,7 @@ describe :kernel_require_basic, :shared => true do
         end
       end
     end
+=end
 
     it "calls #to_str on non-String objects" do
       path = File.expand_path "load_fixture.rb", CODE_LOADING_DIR
